@@ -2,6 +2,8 @@ Jogo do Dados.
 
 Produzido por Lucas Rocha em maior de 2023.
 
+A ideia do jogo foi retirada no livro "O guia essêncial do HTML5" de Jeanine Meyer.
+
 Regras:
 
 Haverá dois dados de seis lados cada, mas o que será mais relevante será a soma de suas faces que estarão para cima.
