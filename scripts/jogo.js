@@ -4,6 +4,8 @@ function ger_num(){
     return Math.floor(Math.random()*6)+1
 }
 
+//Desenhar os dados
+
 function drawface(num){
     switch(num){
         case 1:
