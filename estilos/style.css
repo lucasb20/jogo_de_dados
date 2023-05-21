@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+canvas#canvas{
+    width: 400px;
+    height: 300px;
+}
