@@ -1,16 +1,24 @@
-let ctx = document.querySelector('canvas#canvas').getContext('2d')
+let canvas = document.querySelector('#canvas')
+
+let ctx = canvas.getContext('2d')
+
+canvas.style.background = '#3e6363'
 
 let first_turn = true
 
 let points = 0
 
-let pontuacao = document.querySelector('span#pontos')
+let pontuacao = document.querySelector('#pontos')
 
 let estado_jogo = 0
 
-let result = document.querySelector('span#result')
+let result = document.querySelector('#result')
 
-let botao = document.querySelector('button#but_throw')
+let dice_x=40,dice_y=40,dice_tamx=90,dice_tamy=50;
+
+let dice_num_x=85,dice_num_y=65
+
+let botao = document.querySelector('#but_throw')
 botao.addEventListener('click',throw_dice)
 
 function ger_num(){
@@ -18,6 +26,8 @@ function ger_num(){
 }
 
 function draw_face(num){
+    ctx.fillStyle = 'white'
+    ctx.fillRect(dice_x,dice_y,dice_tamx,dice_tamy)
     switch(num){
         case 1:
             draw1()
@@ -40,17 +50,143 @@ function draw_face(num){
     }
 }
 
-function draw1(){}
+function draw1(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
 
-function draw2(){}
+function draw2(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
 
-function draw3(){}
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
 
-function draw4(){}
+function draw3(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y-15,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
 
-function draw5(){}
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
 
-function draw6(){}
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y+15,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
+
+function draw4(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
+
+function draw5(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
+
+function draw6(){
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-20,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x-20,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+20,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+
+    ctx.beginPath()
+    ctx.fillStyle = 'black'
+    ctx.arc(dice_num_x+20,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.fill()
+    ctx.closePath()
+}
 
 function show_points(){
     pontuacao.innerHTML = `${points}.`
@@ -79,10 +215,14 @@ function throw_dice(){
 
     //Criar o primeiro dado
     a = ger_num()
+    dice_x=40,dice_y=40
+    dice_num_x=85,dice_num_y=65
     draw_face(a)
 
     //Criar o segundo dado
     b = ger_num()
+    dice_x=170,dice_y=40
+    dice_num_x=215,dice_num_y=65
     draw_face(b)
 
     sum = a + b
