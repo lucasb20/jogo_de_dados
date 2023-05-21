@@ -1,18 +1,40 @@
+let ctx = document.querySelector('canvas#canvas').getContext('2d')
+
 function ger_num(){
     return Math.floor(Math.random()*6)+1
 }
 
-let ctx = document.querySelector('canvas#canvas').getContext('2d')
+function drawface(num){
+    switch(num){
+        case 1:
+            draw1()
+            break;
+        case 2:
+            draw2()
+            break;
+        case 3:
+            draw3()
+            break;
+        case 4:
+            draw4()
+            break;
+        case 5:
+            draw5()
+            break;
+        case 6:
+            draw6()
+            break;
+    }
+}
 
-//Famoso Canvas
+function draw1(){}
 
-//Cria um circulo.
-/* ctx.beginPath()
-ctx.strokeStyle = "rgb(200,0,0)"
-ctx.arc(50,40,40,0,Math.PI,false)
-ctx.closePath()
-ctx.fill() */
+function draw2(){}
 
-//Cria um retângulo.
-/* ctx.strokeRect(100,50,200,100)
- */
+function draw3(){}
+
+function draw4(){}
+
+function draw5(){}
+
+function draw6(){}
