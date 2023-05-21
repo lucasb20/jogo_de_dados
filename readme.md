@@ -2,7 +2,7 @@ Jogo do Dados.
 
 Produzido por Lucas Rocha em maior de 2023.
 
-A ideia do jogo foi retirada no livro "O guia essêncial do HTML5" de Jeanine Meyer.
+A ideia do jogo foi retirada do livro "O guia essêncial do HTML5" de Jeanine Meyer.
 
 Regras:
 
