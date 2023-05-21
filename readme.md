@@ -1,4 +1,4 @@
-#Jogo do Dados.
+# Jogo do Dados.
 
 Produzido por Lucas Rocha em maior de 2023.
 
