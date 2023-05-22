@@ -14,9 +14,9 @@ let estado_jogo = 0
 
 let result = document.querySelector('#result')
 
-let dice_x=40,dice_y=40,dice_tamx=90,dice_tamy=50;
+let dice_x,dice_y,dice_tamx=70,dice_tamy=70;
 
-let dice_num_x=85,dice_num_y=65
+let dice_num_x,dice_num_y
 
 let botao = document.querySelector('#but_throw')
 botao.addEventListener('click',throw_dice)
@@ -28,6 +28,8 @@ function ger_num(){
 function draw_face(num){
     ctx.fillStyle = 'white'
     ctx.fillRect(dice_x,dice_y,dice_tamx,dice_tamy)
+    ctx.lineWidth = 2
+    ctx.strokeRect(dice_x,dice_y,dice_tamx,dice_tamy)
     switch(num){
         case 1:
             draw1()
@@ -215,14 +217,14 @@ function throw_dice(){
 
     //Criar o primeiro dado
     a = ger_num()
-    dice_x=40,dice_y=40
-    dice_num_x=85,dice_num_y=65
+    dice_x=60,dice_y=40
+    dice_num_x=95,dice_num_y=75
     draw_face(a)
 
     //Criar o segundo dado
     b = ger_num()
     dice_x=170,dice_y=40
-    dice_num_x=215,dice_num_y=65
+    dice_num_x=205,dice_num_y=75
     draw_face(b)
 
     sum = a + b
