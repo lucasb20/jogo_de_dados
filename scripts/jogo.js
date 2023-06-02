@@ -1,6 +1,9 @@
-let canvas = document.querySelector('#canvas')
+const canvas = document.querySelector('#canvas')
 
-let ctx = canvas.getContext('2d')
+const ctx = canvas.getContext('2d')
+
+canvas.width = 800
+canvas.height = 400
 
 canvas.style.background = '#3e6363'
 
@@ -8,18 +11,20 @@ let first_turn = true
 
 let points = 0
 
-let pontuacao = document.querySelector('#pontos')
+const pontuacao = document.querySelector('#pontos')
 
 let estado_jogo = 0
 
 let result = document.querySelector('#result')
 
-let dice_x,dice_y,dice_tamx=70,dice_tamy=70;
+let dice_x,dice_y,dice_tamx=200,dice_tamy=200;
 
 let dice_num_x,dice_num_y
 
-let botao = document.querySelector('#but_throw')
+const botao = document.querySelector('#but_throw')
 botao.addEventListener('click',throw_dice)
+
+const ball_rad = 15
 
 function ger_num(){
     return Math.floor(Math.random()*6)+1
@@ -55,7 +60,7 @@ function draw_face(num){
 function draw1(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x,dice_num_y,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -63,13 +68,13 @@ function draw1(){
 function draw2(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -77,19 +82,19 @@ function draw2(){
 function draw3(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y-15,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x,dice_num_y,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y+15,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -97,25 +102,25 @@ function draw3(){
 function draw4(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -123,31 +128,31 @@ function draw4(){
 function draw5(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y-12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+15,dice_num_y+12,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+35,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x,dice_num_y,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x,dice_num_y,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -155,37 +160,37 @@ function draw5(){
 function draw6(){
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-20,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-50,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x-20,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x-50,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+20,dice_num_y-10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+50,dice_num_y-35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 
     ctx.beginPath()
     ctx.fillStyle = 'black'
-    ctx.arc(dice_num_x+20,dice_num_y+10,5,0,2*Math.PI,false)
+    ctx.arc(dice_num_x+50,dice_num_y+35,ball_rad,0,2*Math.PI,false)
     ctx.fill()
     ctx.closePath()
 }
@@ -217,14 +222,14 @@ function throw_dice(){
 
     //Criar o primeiro dado
     a = ger_num()
-    dice_x=60,dice_y=40
-    dice_num_x=95,dice_num_y=75
+    dice_x=80,dice_y=40
+    dice_num_x=180,dice_num_y=140
     draw_face(a)
 
     //Criar o segundo dado
     b = ger_num()
-    dice_x=170,dice_y=40
-    dice_num_x=205,dice_num_y=75
+    dice_x=500,dice_y=40
+    dice_num_x=600,dice_num_y=140
     draw_face(b)
 
     sum = a + b
